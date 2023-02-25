@@ -2,7 +2,6 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-
 //3* В калькулятор добавьте возможность отменить последнюю операцию.
 public class Task_03 {
     public static void main(String[] args) {
@@ -14,20 +13,17 @@ public class Task_03 {
         LinkedList<String> listLk = new LinkedList<>();
         Deque<Float> rezultList = new LinkedList<>();
 
-        
         while (!formula.equalsIgnoreCase("q")) {
             System.out.println("Введите выражение для вычеления отеля знаяения пробелом или нажмите Q для выхода: ");
             formula = sc.nextLine();
-            
-            //проверка ввода
-            if (formula.equalsIgnoreCase("q")){
-                System.exit(0);                
-            }
-            else if(formula.equalsIgnoreCase("l")){
+
+            // проверка ввода
+            if (formula.equalsIgnoreCase("q")) {
+                System.exit(0);
+            } else if (formula.equalsIgnoreCase("l")) {
                 formula = rezultList.getLast() + " " + sc.nextLine();
                 System.out.println(formula);
-            }
-            else if(formula.equalsIgnoreCase("b")){
+            } else if (formula.equalsIgnoreCase("b")) {
                 System.out.println(rezultList.pollLast());
                 System.out.println(rezultList);
                 continue;
@@ -47,14 +43,15 @@ public class Task_03 {
             System.out.println(result);
             rezultList.offer(result);
             System.out.println(rezultList);
-            
-            System.out.println("Если вы хотите использовать последний результат для вычелений нажмите L, если вы хотите удалить результат последнего действия ведтие B: ");
-                        
+
+            System.out.println(
+                    "Если вы хотите использовать последний результат для вычелений нажмите L, если вы хотите удалить результат последнего действия введите B: ");
+
         }
         sc.close();
     }
 
-/// функция калькулятор
+    /// функция калькулятор
     public static Float calculator(Float x, Float y, String sign) {
         float result = 0;
         switch (sign) {
@@ -68,7 +65,7 @@ public class Task_03 {
                 result = x * y;
                 break;
             case "/":
-                result = x / y;            
+                result = x / y;
         }
         return result;
     }
